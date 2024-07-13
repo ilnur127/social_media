@@ -1,0 +1,13 @@
+.chatBlock {
+    border-right: 1px solid var(--main-border-color);
+    .messagesBlock {
+        display: flex;
+        flex-direction: column;
+        height: 90vh;
+        overflow-y: auto;
+        padding-top: var(--main-padding);
+        > :first-child {
+            margin-top: auto;
+        }
+    }
+}

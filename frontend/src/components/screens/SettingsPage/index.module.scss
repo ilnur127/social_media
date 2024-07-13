@@ -1,0 +1,52 @@
+.settingsBlock {
+    padding: var(--main-padding);
+    h1 {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    form {
+        display: grid;
+        grid-row-gap: 10px;
+        > div {
+            border: 1px solid var(--main-border-color);
+            border-radius: 12px;
+            padding: var(--main-padding);
+        }
+        .mainInfo {
+            display: grid;
+            grid-template-columns: 1fr 9fr;
+            align-items: center;
+            > div:last-child {
+                > div:first-child {
+                    margin-bottom: 10px;
+                }
+            }
+            .mainInfo_avatar {
+                display: flex;
+                justify-content: flex-start;
+                &__loader {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                }
+                > div {
+                    position: relative;
+                }
+            }
+        }
+        .additionalInfo {
+            display: grid;
+            grid-row-gap: 10px;
+            > div {
+                display: grid;
+                grid-template-columns: 1fr 9fr;
+                align-items: center;
+            }
+        }
+    }
+    img {
+        border-radius: 50%;
+    }
+}

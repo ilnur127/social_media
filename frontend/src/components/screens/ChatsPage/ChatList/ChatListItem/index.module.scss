@@ -1,0 +1,27 @@
+.messageBlock {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 40px 1fr;
+    cursor: pointer;
+    grid-column-gap: 10px;
+    transition: background-color ease-in-out 300ms;
+    border-bottom: 1px solid var(--main-border-color);
+    padding: var(--main-padding);
+    img {
+        border-radius: 50%;
+    }
+    &:hover,
+    &_active {
+        background-color: var(--main-border-color);
+    }
+    &_info {
+        display: grid;
+        small {
+            color: gray;
+        }  
+    }
+    &_header {
+        display: flex;
+        justify-content: space-between;
+    }
+}

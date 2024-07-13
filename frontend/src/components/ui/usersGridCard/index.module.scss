@@ -1,0 +1,9 @@
+.usersGridCard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    > div {
+        border: 1px solid var(--main-border-color);
+        border-radius: 12px;
+    }
+}

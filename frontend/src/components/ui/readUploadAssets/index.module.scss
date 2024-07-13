@@ -1,0 +1,27 @@
+.image {
+    border-radius: 10px;
+}
+.fileLink,
+.audio,
+.video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row-gap: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--main-border-color);
+    padding: 5px;
+    small {
+        color: var(--main-border-color);
+        overflow: hidden;
+        width: 100px;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+    }
+    height: 100%;
+}
+
+.audio {
+    grid-row-gap: 0px;
+}

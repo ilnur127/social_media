@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-color-white: #efeff3;
+  --main-border-color: rgba(255,255,255,0.12);
+  --main-puple-color: #560056;
+  --main-padding: 1.25rem;
+  --main-transition-color: color ease-in-out 300ms;
+  --main-background: linear-gradient(to top right, #0f0104, #1f0a14), #0f0104;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--main-color-white);
+  background: linear-gradient(to top right, #0f0104, #1f0a14), #0f0104;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+button {
+  opacity: 0.6;
+  transition: all ease-in-out 300ms;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.animation-slide-fade {
+  animation: slideFade .4s;
+}
+
+@keyframes slideFade {
+  from {
+    transform: translateY(-22px);
+    opacity: .4;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

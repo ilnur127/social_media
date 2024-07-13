@@ -1,0 +1,17 @@
+.chatList {
+    display: grid;
+    grid-template-rows: 1fr 11fr;
+    position: relative;
+    height: 85vh;
+}
+.searchBlock {
+    padding: var(--main-padding);
+    border: 1px solid var(--main-border-color);
+    border-left: 0px;
+    border-right: 0px;
+}
+.chatListBlock {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}

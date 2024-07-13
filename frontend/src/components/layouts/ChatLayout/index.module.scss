@@ -1,0 +1,13 @@
+.chatPageBlock {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    
+    .chatListBlock {
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .chatBlock {
+        display: grid;
+        grid-template-columns: 6fr 3fr;
+    }
+}

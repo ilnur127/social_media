@@ -1,0 +1,28 @@
+.sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 0px;
+
+    &_linksBlock {
+        display: flex;
+        flex-direction: column;
+        grid-row-gap: 10px;
+        
+        a {
+            display: block;            
+
+            svg {
+                color: #7c7275;
+                transition: color ease-in-out 300ms;
+
+                &.active,
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}

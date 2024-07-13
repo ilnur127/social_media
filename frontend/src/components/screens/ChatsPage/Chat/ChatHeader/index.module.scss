@@ -1,0 +1,25 @@
+.userBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--main-padding);
+    border-bottom: 1px solid var(--main-border-color);
+    height: 10vh;
+    img {
+        border-radius: 50%;
+    }
+    div {
+        display: flex;
+        align-items: center;
+        grid-column-gap: 10px;
+        .userBlock_info {
+            display: grid;
+            small {
+                color: gray;
+            }  
+        }
+    }
+    .buttons {
+        grid-column-gap: 20px;
+    }
+}

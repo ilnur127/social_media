@@ -1,0 +1,45 @@
+.applicationsContent {
+    padding: var(--main-padding);
+    display: grid;
+    grid-gap: 10px;
+    height: 90vh;
+    overflow: auto;
+    align-items: start;
+    &__item {
+        display: grid;
+        grid-gap: 10px;
+        h1 {
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+    &__item:not(:last-child) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--main-border-color);
+    }
+    &__applications {
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: 10px;
+        img,
+        video {
+            width: 150px;
+        }
+        img{
+            height: 150px;
+            max-height: 150px;
+        }
+        audio {
+            width: 150px;
+            height: 60px;
+        }
+        video {
+            height: 130px;
+            max-height: 130px;
+        }
+        small {
+            width: 150px !important;
+        }
+    }
+}

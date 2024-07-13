@@ -1,0 +1,10 @@
+.searchPeopleBlock {
+    padding: var(--main-padding);
+
+    &_searchInput {
+        margin-bottom: 10px;
+        border: 1px solid var(--main-border-color);
+        padding: var(--main-padding);
+        border-radius: 12px;
+    }
+}

@@ -1,0 +1,13 @@
+.button {
+    background: rgb(128, 0, 128);
+    border-radius: 0.75rem;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: linear;
+    transition-duration: 300ms;
+    padding: 0.5rem var(--main-padding);
+
+    &:hover {
+        background: rgba(128, 0, 128, 0.8);
+        cursor: pointer;
+    }
+}

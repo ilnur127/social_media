@@ -1,0 +1,24 @@
+.applicationsBlock_header {
+    height: 10vh;
+    border-bottom: 1px solid var(--main-border-color);
+    padding: var(--main-padding);
+    display: grid;
+    grid-gap: 10px;
+    h1 {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+    }
+
+    .filtersBlock {
+        display: flex;
+        grid-gap: 10px;
+        > div:hover,
+        > div.active {
+            color: #a100a1;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: var(--main-transition-color);
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.messageBlock {
+    border-top: 1px solid var(--main-border-color);
+    padding: var(--main-padding);
+    position: sticky;
+    bottom: 0;
+    background: var(--main-background);
+    &_media {
+        margin-bottom: 10px;
+        display: grid;
+        grid-gap: 34px;
+        grid-template-columns: repeat(auto-fill, 100px);
+        height: 100px;
+        overflow: auto;
+        > div {
+            position: relative;
+            width: 100px;
+            img,
+            video {
+                height: 75px;
+                max-height: 75px;
+                width: 100px;
+            }
+            audio {
+                width: 100px;
+                height: 30px;
+            }
+            button {
+                position: absolute;
+                top: 0;
+                left: 100px;
+            }
+        }
+    }
+
+    &_actions {
+        display: grid;
+        grid-template-columns: 40px 7fr 1fr;
+        align-items: center;
+    }
+
+    &_buttons {
+        display: flex;
+        justify-content: space-evenly;
+        grid-column-gap: 10px;
+        align-items: center;
+    }
+}
+.mediaTooltip {
+    display: grid;
+    grid-row-gap: 10px;
+    &_item {
+        position: static !important;
+        transform: none !important;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+    }
+}

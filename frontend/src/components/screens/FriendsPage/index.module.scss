@@ -1,0 +1,13 @@
+.friendsBlock {
+    padding: var(--main-padding);
+
+    h1 {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    hr {
+        margin: var(--main-padding) 0;
+        border-color: var(--main-border-color);
+    }
+}

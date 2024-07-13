@@ -1,0 +1,38 @@
+.field {
+    display: grid;
+    padding: 5px;
+    input {
+        border: none;
+        outline: none;
+        &::placeholder {
+            color: #666463;
+        }
+    }
+    &:focus-within {
+        .icon {
+            color: var(--main-color-white);
+        }
+    }
+
+    .icon {
+        color: #585654;
+        transition: var(--main-transition-color);
+    }
+}
+.disabled {
+    background: var(--main-border-color);
+    border-radius: 12px;
+    cursor: not-allowed;
+}
+.fieldWithIcon {
+    grid-template-columns: 24px 1fr;
+    input {
+        padding: 0px 10px;
+    }
+}
+.error {
+    color: rgb(220 38 38);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-align: end;
+}
