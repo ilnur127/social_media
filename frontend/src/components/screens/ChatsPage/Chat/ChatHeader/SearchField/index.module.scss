@@ -1,0 +1,10 @@
+.actions {
+    flex-direction: column;
+    > svg {
+        cursor: pointer;
+    }
+    &_disabled {
+        pointer-events: none;
+        color: var(--main-border-color);
+    }
+}

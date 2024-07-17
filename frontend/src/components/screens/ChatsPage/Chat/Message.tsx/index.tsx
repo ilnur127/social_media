@@ -8,16 +8,17 @@ import { format } from 'date-fns';
 import { ReadUploadAssets } from '@/components/ui';
 
 type TMessageProps = {
-    message: IMessage
+  message: IMessage;
+  isSearchMessage: boolean
 }
 
-export default function Message({ message }: TMessageProps) {
+export default function Message({ message, isSearchMessage }: TMessageProps) {
     const { user } = useAuth()
 
     const isSender = user?.id === message.sender.id
 
     return (
-      <div className={clsx(classes.messageBlock, isSender ? classes.senderMessage : '')}>
+      <div className={clsx(classes.messageBlock, isSender ? classes.senderMessage : '')} id={`message_${message.id}`}>
         <div className={classes.messageBlock_content}>
             <Image
               src={process.env.BACK_URL + message.sender.avatar[0].url}
@@ -27,7 +28,7 @@ export default function Message({ message }: TMessageProps) {
             />
             <div className={classes.messageBlock_text}>
               <div>
-                {message.text && <p>{message.text}</p>}
+                {message.text && <p className={isSearchMessage ? classes.searchMessage__text : ''}>{message.text}</p>}
                 {message.media?.length > 0 &&
                   <div className={classes.messageBlock_text__media}>
                     {message.media.map((media) => <ReadUploadAssets key={media.id} uploadAsset={media} />)}

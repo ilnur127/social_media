@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { fetcher } from '@/utils/fetcher';
-import { IChat } from '@/types/chat.types';
+import { IChat, IMessage } from '@/types/chat.types';
 import { Loader } from '@/components/ui';
 
 import MessageField from './MessageField';
@@ -11,10 +11,14 @@ import ChatHeader from './ChatHeader';
 import classes from './index.module.scss';
 import { useAuth } from '@/hooks';
 import { FileX } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+const scrollToElementById = (id: string) =>
+  document.getElementById(id)?.scrollIntoView();
 
 export default function Chat({ id }: { id : string}) {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [findMessagesIdBySearch, setFindMessagesIdBySearch] = useState<IMessage[]>([])
+  const [activeFindMessageIndex, setActiveFindMessageIndex] = useState<number>()
   const { user } = useAuth();
   const { data, isLoading } = useQuery({
     queryKey: ['chat', id],
@@ -29,16 +33,49 @@ export default function Chat({ id }: { id : string}) {
 
   const correspondent = data?.participants?.find(u => u.email !== user?.email)
 
+  const findMessagesFn = useCallback((searchTerm: string) => {
+    const findMessages = data?.messages.filter(message => message.text?.includes(searchTerm))
+    if (findMessages?.length) {
+      setFindMessagesIdBySearch(findMessages || [])
+      setActiveFindMessageIndex(findMessages?.length - 1)
+  
+      scrollToElementById(`message_${findMessages?.at(-1)?.id}`)
+    }
+  }, [data?.messages])
+
+  const switchFindMessage = (id: number) => {
+    setActiveFindMessageIndex(id)
+    scrollToElementById(`message_${data?.messages[id]?.id}`)
+  }
+
+  useEffect(() => {
+    if (data?.messages) {
+      scrollToElementById(`message_${data?.messages[data?.messages.length - 1].id}`)
+    }
+  }, [data?.messages])
+
   return (
     <div className={classes.chatBlock}>
       {isLoading && <Loader />}
-      <ChatHeader user={correspondent} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <div className={classes.messagesBlock}>
+      <ChatHeader
+        user={correspondent}
+        countFindMessages={findMessagesIdBySearch.length}
+        activeFindMessageIndex={activeFindMessageIndex}
+        switchFindMessage={switchFindMessage}
+        findMessagesFn={findMessagesFn}
+      />
+      <div className={classes.messagesBlock} id="messagesBlock">
         {
           data?.messages
             ? data.messages
-              .filter(message => message.text?.includes(searchTerm))
-              .map(message => <Message key={message.id} message={message}/>)
+              .map(message => {
+                console.log(activeFindMessageIndex)
+                return <Message
+                  key={message.id}
+                  message={message}
+                  isSearchMessage={activeFindMessageIndex !== undefined ? findMessagesIdBySearch[activeFindMessageIndex]?.id === message.id : false}
+                />
+})
             : <>
               <FileX />
               <p>Messages not found</p>

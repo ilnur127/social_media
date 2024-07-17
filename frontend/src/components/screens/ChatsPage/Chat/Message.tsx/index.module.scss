@@ -20,6 +20,10 @@
             border-top-left-radius: 0;
             display: grid;
             grid-gap: 10px;
+            .searchMessage__text {
+                background: yellow;
+                color: black;
+            }
             > img {
                 border-radius: 12px;
             }
