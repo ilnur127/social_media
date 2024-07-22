@@ -34,6 +34,7 @@ export default function ChatsListItem({ participants, messages, id }: IChat) {
             <small>{lastMessage?.publishedAt && format(lastMessage?.publishedAt, 'dd.MM.yyyy HH:mm')}</small>
           </div>
           <small>{lastMessage?.text}</small>
+          <small>{lastMessage?.audio && 'Голосовое сообщение'}</small>
           <small>{lastMessage?.media && 'Вложение'}</small>
         </div>
       </Link>

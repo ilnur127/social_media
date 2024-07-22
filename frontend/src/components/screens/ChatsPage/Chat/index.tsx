@@ -22,7 +22,7 @@ export default function Chat({ id }: { id : string}) {
   const { user } = useAuth();
   const { data, isLoading } = useQuery({
     queryKey: ['chat', id],
-    queryFn: () => fetcher<{ data: IChat }>(`chats/${id}?populate[messages][populate][media]=*&populate[messages][populate][sender][populate][avatar]=*&populate[participants][populate][avatar]=*`,
+    queryFn: () => fetcher<{ data: IChat }>(`chats/${id}?populate[messages][populate][media]=*&populate[messages][populate][audio]=*&populate[messages][populate][sender][populate][avatar]=*&populate[participants][populate][avatar]=*`,
       { method: 'GET', isAuth: true}
     ),
     select(data) {
@@ -43,9 +43,9 @@ export default function Chat({ id }: { id : string}) {
     }
   }, [data?.messages])
 
-  const switchFindMessage = (id: number) => {
+  const switchFindMessage = (id?: number) => {
     setActiveFindMessageIndex(id)
-    scrollToElementById(`message_${data?.messages[id]?.id}`)
+    id && scrollToElementById(`message_${data?.messages[id]?.id}`)
   }
 
   useEffect(() => {
@@ -68,18 +68,15 @@ export default function Chat({ id }: { id : string}) {
         {
           data?.messages
             ? data.messages
-              .map(message => {
-                console.log(activeFindMessageIndex)
-                return <Message
-                  key={message.id}
-                  message={message}
-                  isSearchMessage={activeFindMessageIndex !== undefined ? findMessagesIdBySearch[activeFindMessageIndex]?.id === message.id : false}
-                />
-})
-            : <>
+              .map(message => <Message
+                key={message.id}
+                message={message}
+                isSearchMessage={activeFindMessageIndex !== undefined ? findMessagesIdBySearch[activeFindMessageIndex]?.id === message.id : false}
+              />)
+            : <div className={classes.emptyMessagesBlock}>
               <FileX />
               <p>Messages not found</p>
-            </>
+            </div>
         }
         <MessageField />
       </div>

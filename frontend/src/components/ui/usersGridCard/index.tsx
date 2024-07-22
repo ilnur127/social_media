@@ -9,6 +9,7 @@ import { useProfile } from "@/hooks";
 import { useMutation } from "@tanstack/react-query";
 import { fetcher } from "@/utils/fetcher";
 import { toast } from "react-toastify";
+import { IChat } from "@/types/chat.types";
 
 type TUsersGridCardParams = { users: IUser[], isLoading: boolean, isJustFriend?: boolean, refetch: any }
 
@@ -61,7 +62,14 @@ export default function UsersGridCard({ users, isLoading, isJustFriend = false, 
   return (
     <div className={classes.usersGridCard}>
       {isLoading ? <Loader /> : users?.map(
-        user => <UserCard key={user.id} isJustFriend={isJustFriend} user={user} myUserId={Number(userInfo?.id)} addFriend={addFriend} deleteFriend={deleteFriend} />
+        user => <UserCard
+            key={user.id}
+            isJustFriend={isJustFriend}
+            user={user}
+            myUserId={Number(userInfo?.id)}
+            addFriend={addFriend}
+            deleteFriend={deleteFriend}
+        />
     )}
     </div>
   );

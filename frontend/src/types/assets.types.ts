@@ -4,4 +4,5 @@ export interface IAssets {
     name: string;
     mime: string;
     createdAt: string;
+    size: number
 }

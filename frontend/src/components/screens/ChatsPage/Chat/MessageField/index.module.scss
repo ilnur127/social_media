@@ -36,6 +36,11 @@
         display: grid;
         grid-template-columns: 40px 7fr 1fr;
         align-items: center;
+        grid-gap: 10px;
+        audio {
+            height: 24px;
+            width: 100%;
+        }
     }
 
     &_buttons {

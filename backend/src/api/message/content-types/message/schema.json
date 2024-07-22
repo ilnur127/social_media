@@ -28,14 +28,22 @@
       "inversedBy": "messages"
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
+      ]
+    },
+    "audio": {
+      "allowedTypes": [
+        "audios"
       ],
       "type": "media",
-      "multiple": true
+      "multiple": false
     }
   }
 }

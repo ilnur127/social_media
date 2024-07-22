@@ -8,7 +8,8 @@ export interface IMessage {
     createdAt: string,
     updatedAt: string,
     publishedAt: string,
-    sender: IUser
+    sender: IUser,
+    audio: IAssets,
 }
 
 export interface IChat {

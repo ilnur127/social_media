@@ -92,7 +92,7 @@ export default function SettingsPage() {
                 <Field
                   type={field.name}
                   placeholder={`Enter ${field.name}`}
-                  defaultValue={data ? data[field.name as keyof Omit<IUser, 'avatar' | 'friends'>] : ''}
+                  defaultValue={data ? data[field.name as keyof Omit<IUser, 'avatar' | 'friends' | 'chats'>] : ''}
                   Icon={field.Icon}
                   disabled={!isChangeState}
                   {...register(field.name, { required: field.required } )}

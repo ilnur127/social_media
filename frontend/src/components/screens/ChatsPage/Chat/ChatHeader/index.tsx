@@ -12,7 +12,7 @@ type TChatHeaderParams = {
     user?: IUser;
     countFindMessages: number;
     activeFindMessageIndex?: number;
-    switchFindMessage: (id: number) => void;
+    switchFindMessage: (id?: number) => void;
     findMessagesFn: (searchTerm: string) => void; 
 }
 

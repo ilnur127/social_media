@@ -2,7 +2,6 @@
 import { useProfile } from "@/hooks";
 
 import classes from './index.module.scss'
-import { Loader } from "lucide-react";
 import { UsersGridCard } from "@/components/ui";
 
 export default function FriendsPage() {

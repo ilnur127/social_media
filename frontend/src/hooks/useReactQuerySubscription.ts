@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react"
 import io, { Socket } from "socket.io-client"
 
 type TWebSocketEvent = {
-    operation: 'invalidate' | 'update';
+    operation: 'invalidate' | 'update' | 'delete';
     entity: string;
     id?: string;
-    payload?: Record<string, string>
+    payload?: Record<string, string | number>
 }
 
 type TUpdateData = {
@@ -42,6 +42,17 @@ export const useReactQuerySubscription = () => {
                         entity.id === data.id ? { ...entity, ...data.payload } : entity
 
                     return Array.isArray(oldData) ? oldData.map(update) : update(oldData as TUpdateData)
+                }
+            )
+        })
+        socket.current.on('delete', (data: TWebSocketEvent) => {
+            console.log('delete', data)
+            queryClient.setQueriesData<TUpdateData[] | TUpdateData | undefined>(
+                { queryKey: [data.entity, data.id] },
+                (oldData) => {
+                    const update = (entity: TUpdateData) => entity.id === data.payload?.messageId
+
+                    return oldData?.filter(update) || []
                 }
             )
         })

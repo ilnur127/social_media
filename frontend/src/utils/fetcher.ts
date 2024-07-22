@@ -1,6 +1,6 @@
 type TParams = {
     isAuth?: boolean,
-    method: 'POST' | 'GET' | 'PUT',
+    method: 'POST' | 'GET' | 'PUT' | 'DELETE',
     headers?: Record<string, string>,
     body?: object
 }

@@ -9,7 +9,7 @@ import classes from './index.module.scss'
 type TSearchFieldParams = {
     countFindMessages: number;
     activeFindMessageIndex?: number;
-    switchFindMessage: (id: number) => void;
+    switchFindMessage: (id?: number) => void;
     findMessagesFn: (searchTerm: string) => void; 
 }
 
@@ -29,12 +29,12 @@ export default function SearchField({ countFindMessages, activeFindMessageIndex,
             <div>
                 <div className={classes.actions}>
                     <ArrowUpIcon
-                        onClick={() => switchFindMessage(activeFindMessageIndex + 1) }
-                        className={activeFindMessageIndex === countFindMessages - 1 ? classes.actions_disabled : ''}
-                    />
-                    <ArrowDownIcon
                         onClick={() => switchFindMessage(activeFindMessageIndex - 1) }
                         className={activeFindMessageIndex === 0 ? classes.actions_disabled : ''}
+                    />
+                    <ArrowDownIcon
+                        onClick={() => switchFindMessage(activeFindMessageIndex + 1) }
+                        className={activeFindMessageIndex === countFindMessages - 1 ? classes.actions_disabled : ''}
                     />
                 </div>
                 <div>{`${activeFindMessageIndex + 1}/${countFindMessages}`}</div>
@@ -48,7 +48,11 @@ export default function SearchField({ countFindMessages, activeFindMessageIndex,
             Icon={SearchIcon}
             type='search'
         />
-        <button onClick={() => setSearchMode(false)}><XCircleIcon /></button>
+        <button onClick={() => {
+            setSearchMode(false);
+            switchFindMessage(undefined);
+            setSearchTerm('');
+        }}><XCircleIcon /></button>
     </div>
     : <button onClick={() => setSearchMode(true)}><SearchIcon /></button>;
 }

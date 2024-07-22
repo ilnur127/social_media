@@ -418,6 +418,7 @@ export interface ApiMessageMessage extends Schema.CollectionType {
       'api::chat.chat'
     >;
     media: Attribute.Media;
+    audio: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

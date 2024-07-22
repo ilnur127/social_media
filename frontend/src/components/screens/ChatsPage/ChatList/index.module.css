@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: 1fr 11fr;
     position: relative;
-    height: 85vh;
+    height: 87vh;
 }
 .searchBlock {
     padding: var(--main-padding);

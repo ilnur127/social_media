@@ -20,7 +20,7 @@ export default function ChatsList() {
     queryKey: ['chats', debouncedSearchTerm],
     queryFn: async () => {
       const { data } = await fetcher<{ data: IChat[] }>(
-        `chats?populate[messages][populate][media]=*&populate[participants][populate][avatar]=*&filters[participants][email][$eq]=${user?.email}&filters[$or][0][participants][username][$contains]=${debouncedSearchTerm}&filters[$or][1][messages][text][$contains]=${debouncedSearchTerm}`,
+        `chats?populate[messages][populate][media]=*&populate[messages][populate][audio]=*&populate[participants][populate][avatar]=*&filters[participants][email][$eq]=${user?.email}&filters[$or][0][participants][username][$contains]=${debouncedSearchTerm}&filters[$or][1][messages][text][$contains]=${debouncedSearchTerm}`,
         { method: 'GET', isAuth: true }
       )
 

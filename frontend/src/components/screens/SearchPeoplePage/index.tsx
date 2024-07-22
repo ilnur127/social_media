@@ -5,7 +5,7 @@ import { SearchIcon } from "lucide-react";
 
 import { IUser } from "@/types/user.types";
 import { fetcher } from "@/utils/fetcher";
-import { useAuth, useDebounce } from "@/hooks";
+import { useAuth, useDebounce, useProfile } from "@/hooks";
 import { Field, UsersGridCard } from "@/components/ui";
 
 import classes from './index.module.scss'
@@ -18,7 +18,7 @@ export default function SearchPeoplePage() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['users', debouncedSearchTerm],
     queryFn: () => fetcher<IUser[]>(
-      `users?populate[avatar]=*&populate[friends]=*&filters[email][$ne]=${user?.email}&filters[$or][0][username][$contains]=${debouncedSearchTerm}`,
+      `users?populate[avatar]=*&populate[friends]=*&populate[chats][populate]=*&filters[email][$ne]=${user?.email}&filters[$or][0][username][$contains]=${debouncedSearchTerm}`,
       { method: 'GET', isAuth: true }),
   })
 
