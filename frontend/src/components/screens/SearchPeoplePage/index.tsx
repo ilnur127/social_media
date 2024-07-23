@@ -18,7 +18,7 @@ export default function SearchPeoplePage() {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['users', debouncedSearchTerm],
     queryFn: () => fetcher<IUser[]>(
-      `users?populate[avatar]=*&populate[friends]=*&populate[chats][populate]=*&filters[email][$ne]=${user?.email}&filters[$or][0][username][$contains]=${debouncedSearchTerm}`,
+      `users?populate[avatar]=*&populate[friends]=*&populate[chats][populate]=*&populate[blockedPeople][populate]=*&filters[email][$ne]=${user?.email}&filters[$or][0][username][$contains]=${debouncedSearchTerm}`,
       { method: 'GET', isAuth: true }),
   })
 

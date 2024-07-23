@@ -92,6 +92,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
+    },
+    "blockedPeople": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

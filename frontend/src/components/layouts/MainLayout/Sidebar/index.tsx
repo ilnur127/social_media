@@ -6,8 +6,9 @@ import clsx from 'clsx'
 import { Sun } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 
+import { MENU } from '@/data'
+
 import classes from './index.module.scss'
-import { MENU } from './sidebar.data'
 
 const Sidebar = () => {
     const pathName = usePathname();
@@ -36,7 +37,7 @@ const Sidebar = () => {
                         ))}
                     </div>
 
-                    <Sun size={35} />
+                    <button><Sun size={35} /></button>
                 </>
             }
         </aside>

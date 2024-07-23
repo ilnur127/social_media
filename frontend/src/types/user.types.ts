@@ -9,5 +9,6 @@ export interface IUser {
     avatar: { url: string; id: number}[],
     position: string
     friends: IUser[],
+    blockedPeople: IUser[],
     chats: IChat[],
 }

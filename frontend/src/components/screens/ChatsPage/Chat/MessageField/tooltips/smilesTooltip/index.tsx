@@ -2,7 +2,7 @@ import { Tooltip } from "react-tooltip";
 import { ImageIcon } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 
-import { smilesTooltipData } from "@/data/smilesTooltipData";
+import { smilesTooltipData } from "@/data";
 
 import classes from './index.module.scss';
 

@@ -862,6 +862,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
+    blockedPeople: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

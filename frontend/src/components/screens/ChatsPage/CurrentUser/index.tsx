@@ -16,7 +16,7 @@ export default function CurrentUser() {
       {data ? (
         <div className={classes.userBlock}>
           <div>
-            {data.avatar.length ?
+            {data.avatar?.length ?
               <Image
                 src={getUserAvatarUrl(data)}
                 alt={data.username}

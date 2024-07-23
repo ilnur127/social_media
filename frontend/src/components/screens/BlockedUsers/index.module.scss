@@ -1,0 +1,55 @@
+.blockedUsersBlock {
+    padding: var(--main-padding);
+
+    h1 {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    hr {
+        margin: var(--main-padding) 0;
+        border-color: var(--main-border-color);
+    }
+    .usersGridCard {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+        .userCard {
+            padding: var(--main-padding);
+            display: grid;
+            border: 1px solid var(--main-border-color);
+            border-radius: 12px;
+            grid-template-columns: 3fr 7fr;
+            grid-column-gap: 10px;
+            > img {
+                margin: auto;
+                border-radius: 12px;
+            }
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                > small {
+                    color: gray;
+                    align-self: flex-start;
+                }
+                button {
+                    margin-top: 5px;
+                    border-bottom: 1px solid var(--main-color-white);
+                    transition: all ease-in-out 300ms;
+                    opacity: 1;
+                    &:hover{
+                        border-bottom-color: rgba(128, 0, 128, 0.8);
+                        color: rgba(128, 0, 128, 0.8);
+                    }
+                }
+            }
+            &_name {
+                margin-top: 0.75rem;
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+                align-self: flex-start;
+            }
+        }
+    }
+}
