@@ -9,10 +9,16 @@ import { useSession } from 'next-auth/react'
 import { MENU } from '@/data'
 
 import classes from './index.module.scss'
+import { useThemeStore } from '@/store/theme.store'
 
 const Sidebar = () => {
     const pathName = usePathname();
     const session = useSession();
+    const { theme, changeTheme } = useThemeStore()
+
+    const changeInterfaceTheme = () => {
+        changeTheme(theme === 'dark' ? 'white' : 'dark')
+    }
     
     return (
         <aside className={classes.sidebar}>
@@ -37,7 +43,7 @@ const Sidebar = () => {
                         ))}
                     </div>
 
-                    <button><Sun size={35} /></button>
+                    <button onClick={changeInterfaceTheme}><Sun size={35} /></button>
                 </>
             }
         </aside>
