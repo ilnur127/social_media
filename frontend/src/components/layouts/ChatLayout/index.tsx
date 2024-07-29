@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { PropsWithChildren } from 'react';
 import { useParams } from 'next/navigation';
 
@@ -9,7 +9,7 @@ import ChatApplications from '@/components/screens/ChatsPage/ChatApplications';
 import classes from './index.module.scss';
 
 export default function ChatLayout({ children }: PropsWithChildren) {
-  const {id} = useParams()
+  const { id } = useParams();
 
   return (
     <div className={classes.chatPageBlock}>
@@ -19,7 +19,7 @@ export default function ChatLayout({ children }: PropsWithChildren) {
       </div>
       <div className={classes.chatBlock}>
         {children}
-        {id && <ChatApplications chatId={Number(id)}/>}
+        {id && <ChatApplications chatId={Number(id)} />}
       </div>
     </div>
   );

@@ -9,7 +9,8 @@
   --main-transition-color: color ease-in-out 300ms;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -17,7 +18,7 @@ html, body {
 
 body.darkMode {
   --main-background: linear-gradient(to top right, #0f0104, #1f0a14), #0f0104;
-  --main-border-color: rgba(255,255,255,0.12);
+  --main-border-color: rgba(255, 255, 255, 0.12);
   color: var(--main-color-white);
   background: var(--main-background);
 }
@@ -46,13 +47,13 @@ button:hover {
 }
 
 .animation-slide-fade {
-  animation: slideFade .4s;
+  animation: slideFade 0.4s;
 }
 
 @keyframes slideFade {
   from {
     transform: translateY(-22px);
-    opacity: .4;
+    opacity: 0.4;
   }
   to {
     transform: translateY(0);

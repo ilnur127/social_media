@@ -1,5 +1,5 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from 'react';
 
-export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement>{
-    isLoading?: boolean;
+export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+  isLoading?: boolean;
 }

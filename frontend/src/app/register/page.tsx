@@ -1,10 +1,10 @@
-import { Metadata } from "next"
+import { Metadata } from 'next';
 
-import AuthComponent from "@/components/screens/auth"
+import AuthComponent from '@/components/screens/auth';
 
 export const metadata: Metadata = {
-    title: 'Register'
-}
+  title: 'Register',
+};
 export default function RegisterPage() {
-    return <AuthComponent type='register' />
+  return <AuthComponent type='register' />;
 }

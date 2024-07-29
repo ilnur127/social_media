@@ -1,22 +1,22 @@
-import { IAssets } from "./assets.types"
-import { IUser } from "./user.types"
+import { IAssets } from './assets.types';
+import { IUser } from './user.types';
 
 export interface IMessage {
-    id: number,
-    text: string,
-    media: IAssets[],
-    createdAt: string,
-    updatedAt: string,
-    publishedAt: string,
-    sender: IUser,
-    audio: IAssets,
+  id: number;
+  text: string;
+  media: IAssets[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  sender: IUser;
+  audio: IAssets;
 }
 
 export interface IChat {
-    id: number
-    messages: IMessage[]
-    participants: IUser[],
-    createdAt: string,
-    updatedAt: string,
-    publishedAt: string,
+  id: number;
+  messages: IMessage[];
+  participants: IUser[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }

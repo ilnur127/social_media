@@ -1,10 +1,10 @@
-import { Metadata } from "next"
+import { Metadata } from 'next';
 
-import AuthComponent from "@/components/screens/auth"
+import AuthComponent from '@/components/screens/auth';
 
 export const metadata: Metadata = {
-    title: 'Login'
-}
+  title: 'Login',
+};
 export default function LoginPage() {
-    return <AuthComponent type='login' />
+  return <AuthComponent type='login' />;
 }

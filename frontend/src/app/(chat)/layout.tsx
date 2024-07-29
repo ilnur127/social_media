@@ -1,11 +1,9 @@
-import ChatLayout from "@/components/layouts/ChatLayout";
+import ChatLayout from '@/components/layouts/ChatLayout';
 
 export default function ChatPagesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <ChatLayout>{children}</ChatLayout>
-  );
+  return <ChatLayout>{children}</ChatLayout>;
 }
