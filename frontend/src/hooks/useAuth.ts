@@ -1,10 +1,10 @@
-import { useSession } from "next-auth/react"
+import { useSession } from 'next-auth/react';
 
 export function useAuth() {
-    const { data, status } = useSession()
+  const { data, status } = useSession();
 
-    return {
-        user: data?.user,
-        isLoggedIn: status === 'authenticated',
-    }
+  return {
+    user: data?.user,
+    isLoggedIn: status === 'authenticated',
+  };
 }

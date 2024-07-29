@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.45.1",
@@ -15,6 +16,7 @@
     "lucide-react": "^0.367.0",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
+    "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",
     "react-toastify": "^10.0.5",
